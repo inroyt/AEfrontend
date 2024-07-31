@@ -1,17 +1,33 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
+import React from "react";
+import ReactDOM from "react-dom/client";
 import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
-
-const root = ReactDOM.createRoot(document.getElementById('root'));
+import './input.css';
+import App from "./App";
+import { GoogleOAuthProvider } from '@react-oauth/google';
+import { Provider } from 'react-redux';
+import {store} from './redux/store';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Modal from 'react-modal';
+Modal.setAppElement('#root');
+//store.dispatch(fetchPosts());
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+
+    <GoogleOAuthProvider 
+    clientId="869396488493-lmdn933rn9lib8trr55p9e1v1g29lan6.apps.googleusercontent.com"
+    onScriptLoadSuccess={() => { console.log('Script loaded successfully'); }}
+    onScriptLoadError={() => { console.error('Error loading script'); }}
+    >
+    <Provider store={store}>
+    <Router>
+        <Routes>
+          <Route path="/*" element={<App />} />
+        </Routes>
+      </Router>
+    </Provider>
+    </GoogleOAuthProvider>
+
+  
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+

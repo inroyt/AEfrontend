@@ -1,0 +1,44 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.radial-blue{
+    background:radial-gradient(lightyellow,skyblue);
+}
+
+input:focus-within ~ label,
+input:not(:placeholder-shown) ~ label {
+  @apply transform -translate-y-7  text-blue-500 text-xl z-0;
+}
+
+input:focus-within ~ label {
+  @apply text-blue-500 text-xl mx-auto z-0;
+}
+
+.tab-button {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.active-tab {
+  border-bottom: 2px solid blue;
+  transition-property: border-bottom;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 300ms;
+}
+.border-gradient {
+  border-image: linear-gradient(0.25turn, rgba(255, 249, 34), rgba(255, 0, 128), rgba(56, 2, 155, 0));
+  border-image-slice: 1;
+}
+
+
+.transition-opac {
+  transition-property: opacity;
+  transition-timing-function: linear;
+  transition-duration: 300ms;
+}
+
+.echo {
+  animation: spread 1s infinite;
+}
