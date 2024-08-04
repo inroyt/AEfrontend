@@ -126,8 +126,7 @@ export const { setPosts,setSocialPosts,setSavedPosts,setOwnPosts,icrLikes,dcrLik
   setCommentThread,clearCommentThread,clearPosts,setIsTopReached,
   setIsSocial, saveEditedComment,eraseComment,icrCommentCount,decrCommentCount,setPage,setSocialPage,setSearchPage,clearSearchPage,
   setSearchTerm,clearSearchTerm,setSearchResults,clearSearchResults} = postSlice.actions;
-export const getPost=(page)=>{ console.log(api.defaults.baseURL);
-
+export const getPost=(page)=>{ 
     if(page!==undefined){        //undefined parameter in http link cause the backend to crash 
       return async (dispatch)=>{
         try{
