@@ -33,7 +33,7 @@ const handleClick=async ()=> {
         try{
           if(isClicked&&profileId&&postId) {
             setIsClicked(false);
-            const response = await api.post(`/removeSavedPost/${profileId}/remove/${postId}`,{},{withCredentials: true }); 
+            const response = await api.post(`/api/removeSavedPost/${profileId}/remove/${postId}`,{},{withCredentials: true }); 
             //in axios post routes,credentials object is the third parameter,
             // Include this option in the request configuration object
             if(response.status===200){
@@ -41,7 +41,7 @@ const handleClick=async ()=> {
             }
            } else if(profileId&&postId){
             setIsClicked(true);
-            const response=await api.post(`/addSavedPost/${profileId}/add/${postId}`,{},{ withCredentials: true });
+            const response=await api.post(`/api/addSavedPost/${profileId}/add/${postId}`,{},{ withCredentials: true });
             if(response.status===200){
               dispatch(addToSavedPosts(postId));
               
