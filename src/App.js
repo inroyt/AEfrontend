@@ -38,7 +38,7 @@ function App() {
     let ws = null;
   
     if (!socket && profile?.linkname !== undefined) {
-      ws = new WebSocket(`ws:///13.201.115.88:3500/chat?userId=${profile?.linkname}`);
+      ws = new WebSocket(`ws:https://assamemployment.org:3500/chat?userId=${profile?.linkname}`);
   
       ws.onopen = () => {
        // console.log('WebSocket connected');
