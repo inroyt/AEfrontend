@@ -187,7 +187,7 @@ export const addFollowing = (profileId, otherProfileId) => {
   if(profileId !== undefined && otherProfileId !== undefined)
     return async (dispatch) => {
       try {//{ withCredentials: true} is set as third argument in axios PUT requests to send the cookies along with the the request
-        const response = await api.put(`/profile/${profileId}/add-following/${otherProfileId}`,{},{ withCredentials: true });
+        const response = await api.put(`/api/profile/${profileId}/add-following/${otherProfileId}`,{},{ withCredentials: true });
         dispatch(addFollowingAsync(response.data.otherProfileId));
         dispatch(addOtherFollowersAsync(response.data.profileId));
         console.log(response.data);
@@ -203,7 +203,7 @@ export const removeFollowing = (profileId, otherProfileId) => {
   if(profileId !== undefined && otherProfileId !== undefined)
     return async (dispatch) => {
       try {
-        const response = await api.put(`/profile/${profileId}/remove-following/${otherProfileId}`,{},{ withCredentials: true });
+        const response = await api.put(`/api/profile/${profileId}/remove-following/${otherProfileId}`,{},{ withCredentials: true });
         dispatch(removeFollowingAsync(response.data.otherProfileId));
         dispatch(removeOtherFollowersAsync(response.data.profileId)); //
         dispatch(setSuccessMessage('Unfollowed successfully.'));
@@ -248,7 +248,7 @@ export const blockUser=(profileId,otherProfileId) => {
   if(profileId !== undefined && otherProfileId !== undefined)
     return async (dispatch) => {
         try{
-        const response1 = await api.post(`/add-blocked-users/${profileId}/${otherProfileId}`,{},{ withCredentials: true });
+        const response1 = await api.post(`/api/add-blocked-users/${profileId}/${otherProfileId}`,{},{ withCredentials: true });
       
         if (response1.status === 200) {
         

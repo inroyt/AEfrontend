@@ -124,7 +124,7 @@ useEffect(() => {
       // Remove the user from the blockedUsers array and blockedUserProfiles state
     try{
        if(userId!==undefined&&profileId!==undefined){
-       const response=await api.post(`/remove-blocked-users/${profileId}/${userId}`,{},{ withCredentials: true });
+       const response=await api.post(`/api/remove-blocked-users/${profileId}/${userId}`,{},{ withCredentials: true });
       // console.log(response.status);
        if(response.status===200){
        // console.log("unblocked user:",userId);
