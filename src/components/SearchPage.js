@@ -19,7 +19,7 @@ const SearchPage = () => {
   const fetchSuggestions = async (page) => {
     //const searchTerm=searchText;
     try {
-      const response = await api.get(`/fullSearch?searchTerm=${searchTerm}&page=${page}`);
+      const response = await api.get(`/api/fullSearch?searchTerm=${searchTerm}&page=${page}`);
   
       const newSuggestions = response.data;
       dispatch(setSuggestions(newSuggestions));
