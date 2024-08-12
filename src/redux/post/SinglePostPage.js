@@ -63,7 +63,7 @@ const SinglePostPage = () => {
                           const styledContent = styledHtmlContent(contentWithoutQuotes);
                           const sanitizedHTML = DOMPurify.sanitize(styledContent);
                            // Fix href attributes by removing escaped quotes
-                          const sanitizedHtml = sanitizedHTML.replace(/href="\\&quot;([^"]*)\\&quot;"/g, 'href="$1"');
+                          const sanitizedHtml = sanitizedHTML.replace(/\\&quot;([^"]*)\\&quot;/g, '$1');
                           setSanitizedDetails(sanitizedHtml);
                       }
                       dispatch(setSinglePost(response.data));
