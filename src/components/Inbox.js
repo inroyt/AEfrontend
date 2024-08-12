@@ -436,17 +436,8 @@ useEffect(() => {
               </div>
             );
           })
-        }</div>):isChatListEmpty?(<div className=" bg-inherit dark:bg-gray-600 dark:group-hover:text-inherit shadow-lg rounded-md  dark:border-gray-600 overflow-hidden flex flex-col w-[60%] h-[550px] mx-auto ">
-          <div className="w-full  dark:border-gray-500 h-[10%] flex gap-2 items-center justify-center bg-gradient-to-r from-slate-500 to-slate-700 dark:from-slate-700 dark:to-slate-800 ">
-             
-             <Link to={`/profile/${linkname}`} className="flex gap-1 items-center justify-center text-white hover:text-blue-500">
-             {isPicture?<img src={profile.picture} className="object-cover h-7 w-7  my-auto rounded-full "/>
-             :  <div className={`${generateColor(profile?.name?.[0].toUpperCase())}  h-7 hover:h-8 w-7 hover:w-8  my-auto rounded-full text-white flex items-center justify-center`}>
-             {profile?.name?.[0].toUpperCase()}
-            </div>}
-             <p>{profile.name}</p>
-             </Link>
-            </div>
+        }</div>):isChatListEmpty?(<div className="w-full h-full bg-inherit dark:bg-gray-600 dark:group-hover:text-inherit shadow-lg rounded-md  dark:border-gray-600 overflow-hidden flex flex-col  mx-auto ">
+        
             <div  className="w-full dark:border-gray-500 h-[90%] flex flex-col gap-2 bg-slate-300 dark:bg-slate-600 items-center justify-center">
                <p>Inbox is empty! To start a conversation</p> 
                <Link to={`/profile/${linkname}`} className="w-24 h-8 bg-blue-500 hover:bg-blue-700 flex items-center justify-center text-white rounded-md ">
