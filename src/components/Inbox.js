@@ -438,7 +438,7 @@ useEffect(() => {
           })
         }</div>):isChatListEmpty?(<div className="w-full h-full bg-inherit dark:bg-gray-600 dark:group-hover:text-inherit shadow-lg rounded-md  dark:border-gray-600 overflow-hidden flex flex-col  mx-auto ">
         
-            <div  className="w-full dark:border-gray-500 h-[90%] flex flex-col gap-2 bg-slate-300 dark:bg-slate-600 items-center justify-center">
+            <div  className="w-full dark:border-gray-500 h-full flex flex-col gap-2 bg-slate-300 dark:bg-slate-600 items-center justify-center">
                <p>Inbox is empty! To start a conversation</p> 
                <Link to={`/profile/${linkname}`} className="w-24 h-8 bg-blue-500 hover:bg-blue-700 flex items-center justify-center text-white rounded-md ">
                 <p>
