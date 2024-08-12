@@ -52,43 +52,33 @@ const SinglePostPage = () => {
   };
 
   useEffect(() => {
-    const fetchPost = async () => {
+      const fetchPost = async () => {
         dispatch(clearPostSelected());
-        try {
-            if (postId !== undefined) {
-                const response = await api.get(`/api/post/${postId}`, { withCredentials: true });
-                if (response.status === 200) {
-                    if (response.data.details) {
-                        // Remove leading and trailing quotes
-                        const contentWithoutQuotes = response.data.details.replace(/^"|"$/g, '');
+          try {
+              if (postId !== undefined) {
+                  const response = await api.get(`/api/post/${postId}`, { withCredentials: true });
+                  if (response.status === 200) {
+                      if (response.data.details) {
+                          const contentWithoutQuotes = response.data.details.replace(/^"|"$/g, '');
+                          const styledContent = styledHtmlContent(contentWithoutQuotes);
+                          const sanitizedHTML = DOMPurify.sanitize(styledContent);
+                          const sanitizedHtml = sanitizedHTML.replace(/href="\\&quot;([^"]*)\\&quot;"/g, 'href="$1"');//fix click here link
+                          setSanitizedDetails(sanitizedHtml);
+                      }
+                      dispatch(setSinglePost(response.data));
+                  }
+              }
+          } catch (error) {
+              console.error('Error fetching post:', error);
+          }
+      };
 
-                        // Style the HTML content (if needed)
-                        const styledContent = styledHtmlContent(contentWithoutQuotes);
+      if (postId !== undefined) {
+          fetchPost();
+      }
 
-                        // Sanitize HTML content
-                        const sanitizedHTML = DOMPurify.sanitize(styledContent);
-
-                        // Fix href attributes and add target="_blank"
-                        const sanitizedHtml = sanitizedHTML
-                            .replace(/href="\\&quot;([^"]*)\\&quot;"/g, 'href="$1"') // Fix escaped quotes in href
-                            .replace(/<a\s+(?![^>]*target=)[^>]*>/gi, '<a target="_blank" rel="noreferrer">'); // Add target="_blank" and rel="noreferrer"
-
-                        setSanitizedDetails(sanitizedHtml);
-                    }
-                    dispatch(setSinglePost(response.data));
-                }
-            }
-        } catch (error) {
-            console.error('Error fetching post:', error);
-        }
-    };
-
-    if (postId !== undefined) {
-        fetchPost();
-    }
-
-}, [dispatch, postId]);
-
+     
+  }, [dispatch, postId]);
 
   useEffect(() => {
       window.scrollTo(0, 0);
