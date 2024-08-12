@@ -109,8 +109,8 @@ function Login() {
 <span class="sr-only"></span>Loading...</div>;
    }//value={username} onChange={onUsernameChange} value={password} onChange={onPasswordChange}
     return (
-    <div ref={ref} className={` max-w-full bg-blue-700 dark:bg-gray-500 flex items-center justify-center flex-grow mx-auto font-roboto  lg:px-2 py-10 lg:py-4 h-screen z-0} `}>
-            {isNoProfile && <div className="h-full lg:h-[89%]  w-full lg:w-[25%] bg-white rounded-lg  dark:bg-gray-600 shadow-2xl  p-6  space-y-6 lg:mt-12">
+    <div ref={ref} className={` max-w-full bg-blue-700 dark:bg-gray-500 flex items-center justify-center flex-grow mx-auto font-roboto  lg:px-2 py-10 lg:py-4 min-h-screen z-0} `}>
+            {isNoProfile && <div className="h-full  w-full lg:w-[25%] bg-white rounded-lg  dark:bg-gray-600 shadow-2xl  p-6  space-y-6 lg:mt-12">
                 
                 <div className="flex flex-col items-center justify-center space-y-1">
                 <div alt="Logo"  className="object-cover rounded-full h-24 w-24">
