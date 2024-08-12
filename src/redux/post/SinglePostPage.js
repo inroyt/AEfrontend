@@ -63,11 +63,7 @@ const SinglePostPage = () => {
                           const styledContent = styledHtmlContent(contentWithoutQuotes);
                           const sanitizedHTML = DOMPurify.sanitize(styledContent);
                            // Fix href attributes by removing escaped quotes
-                          const sanitizedHtml = sanitizedHTML
-                          .replace(/href="\\&quot;([^"]*)\\&quot;"/g, 'href="$1"') // Remove escaped quotes
-                          .replace(/href="\\([^"]*)\\"/g, 'href="$1"') // Remove backslashes around href
-                          .replace(/href="\\"([^"]*)\\""/g, 'href="$1"') // Handle any remaining escaped quotes
-                          .replace(/href="([^"]*)"/g, 'href="$1"'); // Ensure proper href format
+                          const sanitizedHtml = sanitizedHTML.replace(/href="\\&quot;([^"]*)\\&quot;"/g, 'href="$1"');
                           setSanitizedDetails(sanitizedHtml);
                       }
                       dispatch(setSinglePost(response.data));
