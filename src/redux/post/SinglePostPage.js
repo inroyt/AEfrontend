@@ -36,20 +36,43 @@ const SinglePostPage = () => {
       };
   }, [dispatch, isTopReached]);
 
-  const styledHtmlContent = (htmlString) => {
-      const regex = /<h([1-6])\s*[^>]*>(.*?)<\/h\1>/gi;
-      let sectionCounter = 1;
-      let headers = [];
+  const sanitizeURL = (url) => {
+    // Removes any quotes from the URL
+    return url.replace(/["']/g, '');
+};
 
-      const styledHtml = htmlString.replace(regex, (match, level, content) => {
-          const id = `section-${sectionCounter++}`;
-          headers.push({ id, content });
-          return `<section id="${id}"><h${level} class="w-full bg-gradient-to-r from-cyan-500 to-indigo-500 px-2 py-4 flex flex-grow items-center justify-start text-white rounded-lg">${content}</h${level}></section>`;
-      });
+const styledHtmlContent = (htmlString) => {
+    const regex = /<h([1-6])\s*[^>]*>(.*?)<\/h\1>/gi;
+    let sectionCounter = 1;
+    let headers = [];
 
-      setHeaderList(headers);
-      return styledHtml;
-  };
+    // Sanitize URLs in href attributes
+    const sanitizeHtml = (html) => {
+        return html.replace(/href="([^"]*)"/g, (match, url) => {
+            const sanitizedUrl = sanitizeURL(url);
+            return `href="${sanitizedUrl}"`;
+        });
+    };
+
+    // Sanitize URLs in img src attributes
+    const sanitizeImgSrc = (html) => {
+        return html.replace(/src="([^"]*)"/g, (match, url) => {
+            const sanitizedUrl = sanitizeURL(url);
+            return `src="${sanitizedUrl}"`;
+        });
+    };
+
+    // Apply header styling and sanitize URLs
+    const styledHtml = sanitizeImgSrc(sanitizeHtml(htmlString).replace(regex, (match, level, content) => {
+        const id = `section-${sectionCounter++}`;
+        headers.push({ id, content });
+        return `<section id="${id}"><h${level} class="w-full bg-gradient-to-r from-cyan-500 to-indigo-500 px-2 py-4 flex flex-grow items-center justify-start text-white rounded-lg">${content}</h${level}></section>`;
+    }));
+
+    setHeaderList(headers);
+    return styledHtml;
+};
+
 
   useEffect(() => {
       const fetchPost = async () => {
