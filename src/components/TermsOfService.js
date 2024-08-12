@@ -19,7 +19,7 @@ const TermsOfService = () => {
           <div className="mt-10 space-y-10 text-gray-700 dark:text-gray-200">
             <section id="section-1">
               <h3 className="text-3xl font-semibold border-b pb-2 border-gray-200">1. Acceptance of Terms</h3>
-              <p className="mt-4">By accessing or using AssamEmployment.org, you agree to comply with and be bound by these Terms of Service. If you do not agree to these terms, please do not use our services.</p>
+              <p className="mt-4">By accessing or using assamemployment.org, you agree to comply with and be bound by these Terms of Service. If you do not agree to these terms, please do not use our services.</p>
             </section>
 
             <section id="section-2">
@@ -29,7 +29,7 @@ const TermsOfService = () => {
 
             <section id="section-3">
               <h3 className="text-3xl font-semibold border-b pb-2 border-gray-200">3. User Responsibilities</h3>
-              <p className="mt-4">As a user of AssamEmployment.org, you agree to use the service in a lawful manner. You are responsible for any content you post and for your interactions with other users. You agree to receive SMS and Email from this platform when required. </p>
+              <p className="mt-4">As a user of assamemployment.org, you agree to use the service in a lawful manner. You are responsible for any content you post and for your interactions with other users. You agree to receive SMS and Email from this platform when required. </p>
             </section>
 
             <section id="section-4">
@@ -39,7 +39,7 @@ const TermsOfService = () => {
 
             <section id="section-5">
               <h3 className="text-3xl font-semibold border-b pb-2 border-gray-200">5. Content Ownership</h3>
-              <p className="mt-4">You retain ownership of the content you post on AssamEmployment.org. However, by posting content, you grant us a non-exclusive, royalty-free, perpetual, and worldwide license to use, modify, and distribute your content.</p>
+              <p className="mt-4">You retain ownership of the content you post on assamemployment.org. However, by posting content, you grant us a non-exclusive, royalty-free, perpetual, and worldwide license to use, modify, and distribute your content.</p>
             </section>
 
             <section id="section-6">
@@ -60,12 +60,12 @@ const TermsOfService = () => {
 
             <section id="section-8">
               <h3 className="text-3xl font-semibold border-b pb-2 border-gray-200">8. Limitation of Liability</h3>
-              <p className="mt-4">AssamEmployment.org and its affiliates will not be liable for any indirect, incidental, special, consequential, or punitive damages arising out of your use of or inability to use the service.</p>
+              <p className="mt-4">assamemployment.org and its affiliates will not be liable for any indirect, incidental, special, consequential, or punitive damages arising out of your use of or inability to use the service.</p>
             </section>
 
             <section id="section-9">
               <h3 className="text-3xl font-semibold border-b pb-2 border-gray-200">9. Governing Law</h3>
-              <p className="mt-4">These Terms of Service are governed by the laws of the jurisdiction in which AssamEmployment.org operates. Any disputes arising out of or in connection with these terms shall be resolved by the competent courts of that jurisdiction.</p>
+              <p className="mt-4">These Terms of Service are governed by the laws of the jurisdiction in which assamemployment.org operates. Any disputes arising out of or in connection with these terms shall be resolved by the competent courts of that jurisdiction.</p>
             </section>
 
             <section id="section-10">
