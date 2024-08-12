@@ -36,42 +36,20 @@ const SinglePostPage = () => {
       };
   }, [dispatch, isTopReached]);
 
-  const sanitizeURL = (url) => {
-    // Removes any quotes from the URL
-    return url.replace(/["']/g, '');
-};
+  const styledHtmlContent = (htmlString) => {
+      const regex = /<h([1-6])\s*[^>]*>(.*?)<\/h\1>/gi;
+      let sectionCounter = 1;
+      let headers = [];
 
-const cleanHTMLContent = (html) => {
-    // Remove HTML entities for quotes
-    return html.replace(/\\&quot;/g, '');
-};
+      const styledHtml = htmlString.replace(regex, (match, level, content) => {
+          const id = `section-${sectionCounter++}`;
+          headers.push({ id, content });
+          return `<section id="${id}"><h${level} class="w-full bg-gradient-to-r from-cyan-500 to-indigo-500 px-2 py-4 flex flex-grow items-center justify-start text-white rounded-lg">${content}</h${level}></section>`;
+      });
 
-const styledHtmlContent = (htmlString) => {
-    const headerRegex = /<h([1-6])\s*[^>]*>(.*?)<\/h\1>/gi;
-    let sectionCounter = 1;
-    let headers = [];
-
-    // Clean HTML content
-    const cleanedHtml = cleanHTMLContent(htmlString);
-
-    // Sanitize URLs in href, src, and other attributes
-    const sanitizedHtml = cleanedHtml.replace(/(?:href|src)="([^"]*)"/g, (match, url) => {
-        const sanitizedUrl = sanitizeURL(url);
-        return `${match.split('=')[0]}="${sanitizedUrl}"`;
-    });
-
-    // Apply header styling and return sanitized HTML
-    const styledHtml = sanitizedHtml.replace(headerRegex, (match, level, content) => {
-        const id = `section-${sectionCounter++}`;
-        headers.push({ id, content });
-        return `<section id="${id}"><h${level} class="w-full bg-gradient-to-r from-cyan-500 to-indigo-500 px-2 py-4 flex flex-grow items-center justify-start text-white rounded-lg">${content}</h${level}></section>`;
-    });
-
-    setHeaderList(headers);
-    return styledHtml;
-};
-
-
+      setHeaderList(headers);
+      return styledHtml;
+  };
 
   useEffect(() => {
       const fetchPost = async () => {
@@ -84,8 +62,8 @@ const styledHtmlContent = (htmlString) => {
                           const contentWithoutQuotes = response.data.details.replace(/^"|"$/g, '');
                           const styledContent = styledHtmlContent(contentWithoutQuotes);
                           const sanitizedHTML = DOMPurify.sanitize(styledContent);
-                         
-                          setSanitizedDetails(sanitizedHTML);
+                          const sanitizedHtml = sanitizedHTML.replace(/href="\\&quot;([^"]*)\\&quot;"/g, 'href="$1"');//fix click here link
+                          setSanitizedDetails(sanitizedHtml);
                       }
                       dispatch(setSinglePost(response.data));
                   }
