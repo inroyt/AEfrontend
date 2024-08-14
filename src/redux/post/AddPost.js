@@ -19,7 +19,7 @@ const AddPost = () => {
   const [date, setDate] = useState('');
   const [qualification, setQualification] = useState('');
   const [isValidQual, setIsValidQual] = useState(true);
-  const [vacancy, setVacancy] = useState('');
+  const [vacancy, setVacancy] = useState(null);
   const [isValidVacancy, setIsValidVacancy] = useState(true);
   const [content, setContent] = useState('');
   const [imageFile, setImageFile] = useState(null); // Add state for the image file
