@@ -105,7 +105,7 @@ const OwnPostExcerpt = ({ post }) => {
               </a></div>}
          </div>
          { post.imageUrl!==undefined &&<a target='_blank' rel="noopener noreferrer"
-             href={`${post.link}`} className="flex items-center w-24 h-24 ">
+             href={`${post.link}`} className="flex items-center w-full h-full ">
               <img src={post.imageUrl} className="rounded-lg"/>
            </a>}
       </div>:<div className="w-full h-full items-center flex justify-start gap-2">
