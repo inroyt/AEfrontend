@@ -106,7 +106,7 @@ if (match) {
               </a></div>}
           </div>
           { post.imageUrl&&post.link&&<a target='_blank' rel="noopener noreferrer"
-              href={`${post.link}`} className="flex items-center w-24 h-24 ">
+              href={`${post.link}`} className="flex items-center w-full h-full ">
                <img src={post.imageUrl} className="rounded-md"/>
             </a>}
        </div>
