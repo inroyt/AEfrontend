@@ -251,30 +251,30 @@ const ProfilePage = () => {
                           </button>
                             </>}
                          </div>
-                        {(profile.education || otherProfile.education)&& <div className="flex gap-1 items-center ">
+                        {otherProfile.education&& <div className="flex gap-1 items-center ">
                              <div className="w-5 h-5 text-gray-100">
                               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" >
                                  <path strokeLinecap="round" strokeLinejoin="round" d="M4.26 10.147a60.436 60.436 0 00-.491 6.347A48.627 48.627 0 0112 20.904a48.627 48.627 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.57 50.57 0 00-2.658-.813A59.905 59.905 0 0112 3.493a59.902 59.902 0 0110.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.697 50.697 0 0112 13.489a50.702 50.702 0 017.74-3.342M6.75 15a.75.75 0 100-1.5.75.75 0 000 1.5zm0 0v-3.675A55.378 55.378 0 0112 8.443m-7.007 11.55A5.981 5.981 0 006.75 15.75v-1.5" />
                               </svg>
                              </div>
-                             <h3 className="text-gray-100 font-sm">{isOwnProfile? profile.education:otherProfile.education}</h3>
+                             <h3 className="text-gray-100 font-sm">{otherProfile.education}</h3>
                          </div>}
-                         {(profile.organization || otherProfile.organization)&& <div className="flex gap-1 items-center ">
+                         {otherProfile.organization&& <div className="flex gap-1 items-center ">
                              <div className="w-5 h-5 text-gray-100">
                              <svg data-slot="icon" aria-hidden="true" fill="none" strokeWidth="1.5" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                               <path d="M2.25 21h19.5m-18-18v18m10.5-18v18m6-13.5V21M6.75 6.75h.75m-.75 3h.75m-.75 3h.75m3-6h.75m-.75 3h.75m-.75 3h.75M6.75 21v-3.375c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21M3 3h12m-.75 4.5H21m-3.75 3.75h.008v.008h-.008v-.008Zm0 3h.008v.008h-.008v-.008Zm0 3h.008v.008h-.008v-.008Z" strokeLinecap="round" strokeLinejoin="round"></path>
                             </svg>
                              </div>
-                             <h3 className="text-gray-100 font-sm">{isOwnProfile?profile.organization:otherProfile.organization}</h3>
+                             <h3 className="text-gray-100 font-sm">{otherProfile.organization}</h3>
                          </div>}
-                         {(profile.location || otherProfile.location)&&<div className="flex gap-1  items-center">
+                         {otherProfile.location&&<div className="flex gap-1  items-center">
                              <div className="w-5 h-5 text-gray-100">
                                <svg  data-slot="icon" aria-hidden="true" fill="none" strokeWidth="1.5" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" strokeLinecap="round" strokeLinejoin="round"></path>
                                  <path d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z" strokeLinecap="round" strokeLinejoin="round"></path>
                                </svg>
                              </div>
-                             <h3 className="text-gray-100 font-sm">{isOwnProfile? profile.location :otherProfile.location}</h3>
+                             <h3 className="text-gray-100 font-sm">{otherProfile.location}</h3>
                          </div>}
             <div className="flex items-center gap-4  ">
                 <button  
