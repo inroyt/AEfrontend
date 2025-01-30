@@ -14,7 +14,7 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
 
     <GoogleOAuthProvider 
-    clientId="My_ID"
+    clientId="My_ID_"
     onScriptLoadSuccess={() => { console.log('Script loaded successfully'); }}
     onScriptLoadError={() => { console.error('Error loading script'); }}
     >
